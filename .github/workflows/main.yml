@@ -1,0 +1,14 @@
+name: Automated publish Actions
+on: push
+
+jobs:
+  publish-module:
+    name: Publish Module to PowerShell Gallery
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: perform publish
+        uses: pcgeek86/publish-powershell-module-action@v19
+        with:
+          modulePath: vPOSH.Storage
+          NuGetApiKey: ${{ secrets.PS_GALLERY_KEY }}
